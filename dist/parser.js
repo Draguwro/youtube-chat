@@ -73,6 +73,9 @@ function parseData(data) {
         timestamp: usecToTime(messageRenderer.timestampUsec),
     };
     if (messageRenderer.authorBadges) {
+        console.log("Badges:");
+        console.log(messageRenderer.authorBadges);
+        throw "Hey"
         const badge = messageRenderer.authorBadges[0].liveChatAuthorBadgeRenderer;
         if (badge.customThumbnail) {
             ret.author.badge = {
@@ -81,8 +84,7 @@ function parseData(data) {
             };
         }
         else {
-          console.log("Badges:");
-          console.log(messageRenderer.authorBadges);
+          
             ret.isOwner = true;
         }
     }
