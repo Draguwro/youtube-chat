@@ -63,7 +63,7 @@ function parseData(data) {
     const ret = {
         id: messageRenderer.id,
         author: {
-            name: messageRenderer.authorName.simpleText,
+            name: "nope",
             thumbnail: parseThumbnailToImageItem(messageRenderer.authorPhoto.thumbnails, messageRenderer.authorName.simpleText),
             channelId: messageRenderer.authorExternalChannelId,
         },
