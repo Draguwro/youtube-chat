@@ -27,6 +27,7 @@ export interface CommentItem {
     };
     membership: boolean;
     isOwner: boolean;
+    isMod: boolean;
     timestamp: number;
 }
 export declare function actionToRenderer(action: Action): LiveChatTextMessageRenderer | LiveChatPaidMessageRenderer | LiveChatPaidStickerRenderer | LiveChatMembershipItemRenderer | null;

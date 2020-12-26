@@ -63,7 +63,7 @@ function parseData(data) {
     const ret = {
         id: messageRenderer.id,
         author: {
-            name: "nope",
+            name: messageRenderer.authorName.simpleText,
             thumbnail: parseThumbnailToImageItem(messageRenderer.authorPhoto.thumbnails, messageRenderer.authorName.simpleText),
             channelId: messageRenderer.authorExternalChannelId,
         },
@@ -73,18 +73,16 @@ function parseData(data) {
         timestamp: usecToTime(messageRenderer.timestampUsec),
     };
     if (messageRenderer.authorBadges) {
-        console.log("Badges:");
         console.log(messageRenderer.authorBadges);
-        throw "Hey"
         const badge = messageRenderer.authorBadges[0].liveChatAuthorBadgeRenderer;
         if (badge.customThumbnail) {
             ret.author.badge = {
                 thumbnail: parseThumbnailToImageItem(badge.customThumbnail.thumbnails, badge.tooltip),
                 label: badge.tooltip,
             };
-        }
-        else {
-          
+        } else if (badge.tooltip === "Moderator") {
+            ret.isMod = true;
+        } else {
             ret.isOwner = true;
         }
     }
