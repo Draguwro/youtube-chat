@@ -70,10 +70,10 @@ function parseData(data) {
         message: parseMessages(message),
         membership: Boolean('headerSubtext' in messageRenderer),
         isOwner: false,
+        isMod: false,
         timestamp: usecToTime(messageRenderer.timestampUsec),
     };
     if (messageRenderer.authorBadges) {
-        console.log(messageRenderer.authorBadges);
         const badge = messageRenderer.authorBadges[0].liveChatAuthorBadgeRenderer;
         if (badge.customThumbnail) {
             ret.author.badge = {
