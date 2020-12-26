@@ -81,6 +81,8 @@ function parseData(data) {
             };
         }
         else {
+          console.log("Badges:");
+          console.log(messageRenderer.authorBadges);
             ret.isOwner = true;
         }
     }
