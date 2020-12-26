@@ -27,20 +27,13 @@
 4. Add events
     ```typescript
     // Emit at start of observation chat.
-    // liveId: string
-    liveChat.on('start', (liveId) => {})
-   
+    liveChat.on('start', (liveId: string) => {})
     // Emit at end of observation chat.
-    // reason: string?
-    liveChat.on('end', (reason) => {})
-    
+    liveChat.on('end', (reason: string) => {})
     // Emit at receive chat.
-    // comment: CommentItem
-    liveChat.on('comment', (comment) => {})
-    
+    liveChat.on('comment', (comment: CommentItem) => {})
     // Emit when an error occurs
-    // err: Error
-    liveChat.on('error', (err) => {})
+    liveChat.on('error', (err: Error) => {})
     ```
 
 ## Types
